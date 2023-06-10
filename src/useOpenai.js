@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import openai from "./openAIConfig";
 
 /**
@@ -18,7 +18,7 @@ import openai from "./openAIConfig";
  */
 
 export default function useOpenai() {
-  const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [feed, setFeed] = useState([]);
 
