@@ -48,6 +48,7 @@ export default function useOpenai() {
       clearTimeout(timeout)
       setLoading(false)
     }catch (error) {
+        clearTimeout(timeout)
         setError(error.message);
     }
 
