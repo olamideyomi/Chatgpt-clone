@@ -18,17 +18,17 @@ import openai from "./openAIConfig";
  */
 
 export default function useOpenai() {
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [feed, setFeed] = useState([]);
 
   const generate = async (prompt) => {
-   const timeout = setTimeout(() => setLoading(true), 500);
+    const timeout = setTimeout(() => setLoading(true), 500);
     setError(null);
 
     try {
-        const newFeed = [...feed, {role: 'user', content: prompt}];
-        setFeed(newFeed)
+      const newFeed = [...feed, { role: "user", content: prompt }];
+      setFeed(newFeed);
       const res = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [
@@ -40,20 +40,17 @@ export default function useOpenai() {
           },
           ...newFeed,
         ],
-      })
+      });
 
-
-      const response = res.data.choices[0].message
-        setFeed(curr => [...curr, response])
-      clearTimeout(timeout)
-      setLoading(false)
-    }catch (error) {
-        clearTimeout(timeout)
-        setError(error.message);
+      const response = res.data.choices[0].message;
+      setFeed((curr) => [...curr, response]);
+      clearTimeout(timeout);
+      setLoading(false);
+    } catch (error) {
+      clearTimeout(timeout);
+      setError(error.message);
     }
-
-  }
-
+  };
   return {
     loading,
     error,
