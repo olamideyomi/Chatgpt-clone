@@ -100,6 +100,6 @@ const MessageForm = ({ generate }) => {
   );
 };
 
-const MessageBox = tw.div`bg-white py-1 px-2 border-t border-neutral-400/20 flex gap-4 absolute bottom-0 w-full h-12 mb-16`;
+const MessageBox = tw.div`bg-white py-1 px-2 border-t border-neutral-400/20 flex gap-4 absolute bottom-0 w-full h-12 mb-9`;
 const Input = tw.input`w-full h-full bg-transparent border p-2 rounded-full border-neutral-300 outline-none`;
 const SendButton = tw.button`bg-blue-500 text-white rounded-full [svg]:(w-5 h-5 stroke-2 text-white) p-2`;
